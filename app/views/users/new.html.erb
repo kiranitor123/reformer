@@ -1,11 +1,11 @@
 <h1> Hello Users </h1>
 
-<div class="mx-auto">
+<div class="form-style-6">
+<h1>Create Account</h1>
 <%= form_with url: "/user/new", method: :get do |form| %>
-  <%= form.label :query, "Create Account:", :class => 'create' %> <br> <br>
-  <%= form.text_field :name %><br><br>
-  <%= form.email_field :address %><br><br>
-  <%= form.password_field :password %><br><br>
-  <%= form.submit "Login" %>
+  <%= form.text_field :name,  placeholder: "Username", :class => 'text_field' %><br><br>
+  <%= form.email_field :address,  placeholder: "Email", :class => 'email_field' %><br><br>
+  <%= form.password_field :password,  placeholder: "Password", :class => 'password_field' %><br><br>
+  <%= form.submit "Login", :class => 'login_button' %>
 <% end %>
 <div>
