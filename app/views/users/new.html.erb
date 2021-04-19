@@ -1,11 +1,19 @@
 <h1> Hello Users </h1>
 
 <div class="form-style-6">
-<h1>Create Account</h1>
-<%= form_with url: "/user/new", method: :get do |form| %>
-  <%= form.text_field :name,  placeholder: "Username", :class => 'text_field' %><br><br>
-  <%= form.email_field :address,  placeholder: "Email", :class => 'email_field' %><br><br>
-  <%= form.password_field :password,  placeholder: "Password", :class => 'password_field' %><br><br>
-  <%= form.submit "Login", :class => 'login_button' %>
-<% end %>
+  <h1>Create Account</h1>
+  <%= form_for(@user, url: users_path) do |form| %>
+    <%= form.text_field :username,  placeholder: "Username", :class => 'text_field' %><br><br>
+    <%= form.email_field :email,  placeholder: "Email", :class => 'email_field' %><br><br>
+    <%= form.password_field :password,  placeholder: "Password", :class => 'password_field' %><br><br>
+    <%= form.submit "Login", :class => 'login_button' %>
+
+    <% if @user.errors.any? %>
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+        <li> <%= msg %> </li>
+        <% end %>
+      </ul>
+    <% end %>
+  <% end %>
 <div>
