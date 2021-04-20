@@ -1,5 +1,23 @@
 <h1> Hello Users </h1>
 
+<!--
+<form action="/users" method="post" accept-charset="UTF-8">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="text" id="username" name="user[username]">
+  <input type="text" id="email" name="user[email]">
+  <input type="password" id="password" name="user[password]">
+  <input type="submit">
+</form>
+-->
+<!--
+<%= form_tag('/users', method: 'POST') do %>
+    <%= text_field_tag(:username) %>
+    <%= text_field_tag(:email) %>
+    <%= text_field_tag(:password) %>
+    <%= submit_tag("Submit") %>
+<% end %>
+-->
+
 <div class="form-style-6">
   <h1>Create Account</h1>
   <%= form_for(@user, url: users_path) do |form| %>
