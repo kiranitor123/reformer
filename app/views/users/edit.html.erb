@@ -1,0 +1,19 @@
+<h1> Hello Users </h1>
+
+<div class="form-style-6">
+  <h1>Edit user</h1>
+  <%= form_with model: @user, method: :patch do |form| %>
+    <%= form.text_field :username, :value => @user.username, placeholder: "Edit Username", :class => 'text_field' %><br><br>
+    <%= form.email_field :email, :value => @user.email, placeholder: "Edit Email", :class => 'email_field' %><br><br>
+    <%= form.password_field :password,  placeholder: "Edit Password", :class => 'password_field' %><br><br>
+    <%= form.submit "Edit", :class => 'login_button' %>
+
+    <% if @user.errors.any? %>
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+        <li> <%= msg %> </li>
+        <% end %>
+      </ul>
+    <% end %>
+  <% end %>
+<div>
